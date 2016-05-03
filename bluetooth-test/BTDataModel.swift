@@ -34,8 +34,7 @@ class BTDataModel: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate { //
     }
     func scanForAvailableDevices () {
         btDevices.removeAll()
-        let cbuuid = CBUUID.init(string: "180A") //device info cbuuid
-        btManager?.scanForPeripheralsWithServices([cbuuid], options: nil)
+        btManager?.scanForPeripheralsWithServices([CBUUID.init(string: "180A"), CBUUID.init(string: "1800"), CBUUID.init(string: "1801")], options: nil)
     }
     
     // MARK: CBCentralManagerDelegate functions

@@ -14,6 +14,8 @@
 		8114A1131CD7DF6300C60419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8114A1111CD7DF6300C60419 /* LaunchScreen.storyboard */; };
 		8114A11B1CD7E03600C60419 /* BTDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114A11A1CD7E03600C60419 /* BTDataModel.swift */; };
 		8114A11D1CD7E05E00C60419 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8114A11C1CD7E05E00C60419 /* CoreBluetooth.framework */; };
+		818E66D41CD8B086007A09C8 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818E66D21CD8B086007A09C8 /* Fabric.framework */; };
+		818E66D51CD8B086007A09C8 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818E66D31CD8B086007A09C8 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		8114A1141CD7DF6300C60419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8114A11A1CD7E03600C60419 /* BTDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTDataModel.swift; sourceTree = "<group>"; };
 		8114A11C1CD7E05E00C60419 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		818E66D21CD8B086007A09C8 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		818E66D31CD8B086007A09C8 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8114A11D1CD7E05E00C60419 /* CoreBluetooth.framework in Frameworks */,
+				818E66D51CD8B086007A09C8 /* Crashlytics.framework in Frameworks */,
+				818E66D41CD8B086007A09C8 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +49,8 @@
 		8114A0FC1CD7DF6300C60419 = {
 			isa = PBXGroup;
 			children = (
+				818E66D21CD8B086007A09C8 /* Fabric.framework */,
+				818E66D31CD8B086007A09C8 /* Crashlytics.framework */,
 				8114A11C1CD7E05E00C60419 /* CoreBluetooth.framework */,
 				8114A1071CD7DF6300C60419 /* bluetooth-test */,
 				8114A1061CD7DF6300C60419 /* Products */,
@@ -81,6 +89,7 @@
 				8114A1011CD7DF6300C60419 /* Sources */,
 				8114A1021CD7DF6300C60419 /* Frameworks */,
 				8114A1031CD7DF6300C60419 /* Resources */,
+				818E66D11CD8B061007A09C8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -141,6 +150,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		818E66D11CD8B061007A09C8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 9da5b1d770dc9afadf6823e363e12ea2849e48c5 abf6e05f64f497d9c80daf1c99d5d1904ef5548ff0122dabfa82e478ba4a484e";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8114A1011CD7DF6300C60419 /* Sources */ = {
@@ -264,10 +289,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Maxim Mamedov (5GM8379Z8Q)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "bluetooth-test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.wearemad.bluetooth-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "49e99b6b-e4d3-4bcf-8788-a9f27ca63354";
 			};
 			name = Debug;
 		};
@@ -275,10 +306,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Maxim Mamedov (5GM8379Z8Q)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "bluetooth-test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.wearemad.bluetooth-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "49e99b6b-e4d3-4bcf-8788-a9f27ca63354";
 			};
 			name = Release;
 		};
