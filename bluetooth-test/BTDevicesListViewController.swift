@@ -26,7 +26,11 @@ class BTDevicesListViewController: UIViewController, UITableViewDelegate, UITabl
             btDataModel.scanForAvailableDevices()
             refreshButton.setTitle("Обновление...", forState: UIControlState.Normal)
             refreshButton.enabled = false
-            updateTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(BTDevicesListViewController.timerFire), userInfo: nil, repeats: true);
+            updateTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(BTDevicesListViewController.timerFire), userInfo: nil, repeats: false);
+        }
+        else
+        {
+            UIAlertView.init(title: "Ошибка", message: "Необходимо включить Bluetooth", delegate: nil, cancelButtonTitle: "OK").show()
         }
         
     }

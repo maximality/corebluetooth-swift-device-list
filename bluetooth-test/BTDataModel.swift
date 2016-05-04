@@ -34,15 +34,15 @@ class BTDataModel: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate { //
     }
     func scanForAvailableDevices () {
         btDevices.removeAll()
-        btManager?.scanForPeripheralsWithServices([CBUUID.init(string: "180A"), CBUUID.init(string: "1800"), CBUUID.init(string: "1801")], options: nil)
+        btManager?.scanForPeripheralsWithServices(nil, options: nil)
     }
     
     // MARK: CBCentralManagerDelegate functions
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         print(advertisementData);
         //получаем параметры и формируем экземпляр класса BTDevice
-        let manufacturer = String(advertisementData[CBAdvertisementDataManufacturerDataKey])
-        let name = String(advertisementData[CBAdvertisementDataLocalNameKey])
+        let manufacturer = advertisementData[CBAdvertisementDataManufacturerDataKey] == nil ? "No manufacturer" : String(advertisementData[CBAdvertisementDataManufacturerDataKey])
+        let name = advertisementData[CBAdvertisementDataLocalNameKey] == nil ? "No name" : String(advertisementData[CBAdvertisementDataLocalNameKey])
         let btDeivce = BTDevice(advertData: manufacturer + " " + name, rssi: RSSI)
         btDevices.append(btDeivce)
         NSNotificationCenter.defaultCenter().postNotificationName(kNewDeviceDiscovered, object: nil)
